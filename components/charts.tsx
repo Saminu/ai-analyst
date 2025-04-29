@@ -98,7 +98,15 @@ export function Chart({ chart }: { chart: ChartTypes }) {
   }
 
   if (chart.type === "bar") {
-    const data = Object.groupBy(chart.elements, ({ group }) => group);
+    // Group elements by their group property
+    const data: Record<string, any[]> = {};
+    chart.elements.forEach((element) => {
+      const group = element.group || 'default';
+      if (!data[group]) {
+        data[group] = [];
+      }
+      data[group].push(element);
+    });
 
     const series = Object.entries(data).map(([group, elements]) => ({
       name: group,

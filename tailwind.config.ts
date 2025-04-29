@@ -12,49 +12,57 @@ const config: Config = {
       colors: {
         background: "hsl(var(--background))",
         foreground: "hsl(var(--foreground))",
-        card: {
-          DEFAULT: "hsl(var(--card))",
-          foreground: "hsl(var(--card-foreground))",
-        },
-        popover: {
-          DEFAULT: "hsl(var(--popover))",
-          foreground: "hsl(var(--popover-foreground))",
-        },
-        primary: {
-          DEFAULT: "hsl(var(--primary))",
-          foreground: "hsl(var(--primary-foreground))",
-        },
-        secondary: {
-          DEFAULT: "hsl(var(--secondary))",
-          foreground: "hsl(var(--secondary-foreground))",
-        },
-        muted: {
-          DEFAULT: "hsl(var(--muted))",
-          foreground: "hsl(var(--muted-foreground))",
-        },
-        accent: {
-          DEFAULT: "hsl(var(--accent))",
-          foreground: "hsl(var(--accent-foreground))",
-        },
-        destructive: {
-          DEFAULT: "hsl(var(--destructive))",
-          foreground: "hsl(var(--destructive-foreground))",
-        },
         border: "hsl(var(--border))",
-        input: "hsl(var(--input))",
-        ring: "hsl(var(--ring))",
-        chart: {
-          "1": "hsl(var(--chart-1))",
-          "2": "hsl(var(--chart-2))",
-          "3": "hsl(var(--chart-3))",
-          "4": "hsl(var(--chart-4))",
-          "5": "hsl(var(--chart-5))",
+        primary: {
+          DEFAULT: "#2563FF", // Accent
+          dark: "#1E4FF5",    // Accent-Dark
+          lite: "#F0F6FF",    // Accent-Lite
         },
+        text: {
+          main: "#0A0A0A",    // Text-Main
+        },
+        grid: "#E5E7EB",      // Grid/Stroke
+        success: "#16A34A",   // Success
+        warning: "#D97706",   // Warning
+        error: "#DC2626",     // Error
       },
-      borderRadius: {
-        lg: "var(--radius)",
-        md: "calc(var(--radius) - 2px)",
-        sm: "calc(var(--radius) - 4px)",
+      spacing: {
+        's1': '4px',
+        's2': '8px',
+        's3': '16px',
+        's4': '24px',
+        's5': '32px',
+        's6': '48px',
+        's7': '72px',
+        's8': '96px',
+      },
+      maxWidth: {
+        'content': '1140px',
+      },
+      fontFamily: {
+        sans: ['Inter', 'sans-serif'],
+        mono: ['Inter Mono', 'monospace'],
+      },
+      fontSize: {
+        'h1': 'clamp(2.6rem, 6vw + 1rem, 4.4rem)',
+        'h2': '1.7rem',
+        'body-m': '1.05rem', // 16.8px
+        'body-s': '0.9rem',
+      },
+      letterSpacing: {
+        'h1': '-0.02em', // -2%
+        'h2': '-0.01em', // -1%
+        'body-s': '0.002em', // 0.2%
+      },
+      lineHeight: {
+        'heading': '1.1',
+        'body': '1.5',
+      },
+      fontWeight: {
+        'normal': '400',
+        'medium': '500',
+        'bold': '700',
+        'extrabold': '800',
       },
     },
   },

@@ -18,9 +18,11 @@ export default function Home() {
   const [files, setFiles] = useState<File[]>([]);
 
   const exampleMessages = [
-    "Person's age born in 2001 as line",
-    "Analyze letters in word strawberry",
+    "Create a plot of all TB cases overtime and per region",
+    "Plot global temperature anomalies from 1880–2025",
     "Plot a chart of the last 10 years of the S&P 500",
+    "Plot global renewable energy capacity by source from 2000–2022",
+    "Plot Bitcoin closing price (last 5 years)",
   ];
 
   const [isLoading, setIsLoading] = useState(false);
@@ -121,19 +123,13 @@ export default function Home() {
   return (
     <div className="flex flex-col min-h-screen max-h-screen">
       <nav className="flex gap-0.5 justify-between items-center px-4 py-3 top-0 fixed left-0 right-0 bg-white/80 backdrop-blur-sm shadow-sm z-10">
-        <div className="flex items-center gap-2 w-full max-w-2xl mx-auto">
+        <div className="flex items-center justify-between w-full max-w-[1140px] mx-auto">
           <Logo className="w-6 h-6" />
-          <h1 className="text-md font-medium">
-            Analyst by{" "}
-            <a
-              href="https://e2b.dev"
-              target="_blank"
-              className="underline decoration-[rgba(229,123,0,.3)] decoration-2 text-[#ff8800]"
-            >
-              E2B
-            </a>
-          </h1>
-          <RepoBanner />
+          <div className="flex items-center gap-4">
+            <span className="text-body-s tracking-[0.002em] text-text-main">
+              Data ‧ Users ‧ Tasks
+            </span>
+          </div>
         </div>
       </nav>
 
@@ -144,17 +140,17 @@ export default function Home() {
       </div>
 
       <div className="mb-4 mx-4">
-        <div className="mx-auto w-full max-w-2xl flex flex-col gap-2">
+        <div className="mx-auto w-full max-w-[1140px] flex flex-col gap-2">
           <div className="flex gap-2 overflow-x-auto">
             {messages.length === 0 && files.length === 0 && (
               <div className="flex gap-2 overflow-x-auto scrollbar-thin pb-1 pr-4 [mask-image:linear-gradient(to_right,transparent,black_0%,black_95%,transparent)]">
                 {exampleMessages.map((msg) => (
                   <button
                     key={msg}
-                    className="flex items-center gap-2 p-1.5 border rounded-lg text-gray-800"
+                    className="flex items-center gap-2 p-1.5 border border-grid rounded-[8px] text-text-main hover:bg-primary-lite transition-colors duration-120"
                     onClick={() => setInput(msg)}
                   >
-                    <span className="text-sm truncate">{msg}</span>
+                    <span className="text-body-s tracking-[0.002em] truncate">{msg}</span>
                   </button>
                 ))}
               </div>
@@ -162,10 +158,10 @@ export default function Home() {
             {files.map((file) => (
               <div
                 key={file.name}
-                className="flex items-center gap-2 p-1.5 border rounded-lg bg-slate-100 text-gray-800"
+                className="flex items-center gap-2 p-1.5 border border-grid rounded-[8px] bg-primary-lite text-text-main"
               >
                 <FileText className="w-4 h-4" />
-                <span className="text-sm truncate">{file.name}</span>
+                <span className="text-body-s tracking-[0.002em] truncate">{file.name}</span>
                 <button
                   type="button"
                   onClick={() => handleFileRemove(file)}
@@ -193,12 +189,12 @@ export default function Home() {
               />
             </div>
             {isLoading && (
-              <span className="text-xs text-gray-700">Loading…</span>
+              <span className="text-body-s tracking-[0.002em] text-text-main">Loading…</span>
             )}
           </div>
           <form
             onSubmit={customSubmit}
-            className="flex border p-2 border-1.5 border-border rounded-xl overflow-hidden shadow-sm"
+            className="flex border border-grid rounded-[8px] overflow-hidden shadow-[0_2px_8px_rgba(0,0,0,0.04)]"
           >
             <input
               type="file"
@@ -211,7 +207,7 @@ export default function Home() {
             />
             <button
               type="button"
-              className="border p-1.5 rounded-lg hover:bg-slate-200 text-slate-800"
+              className="border-r border-grid p-3 hover:bg-primary-lite transition-colors duration-120 text-text-main"
               onClick={(e) => {
                 e.preventDefault();
                 document.getElementById("multimodal")?.click();
@@ -222,14 +218,14 @@ export default function Home() {
             <input
               autoFocus
               required
-              className="w-full px-2 outline-none"
+              className="w-full px-4 py-3 outline-none text-body-m"
               value={input}
               placeholder="Enter your prompt..."
               onChange={handleInputChange}
             />
             <button
               type="submit"
-              className="bg-orange-500 text-white p-1.5 rounded-lg hover:bg-orange-500/80"
+              className="bg-primary text-white px-4 py-3 hover:bg-primary-dark transition-colors duration-120"
             >
               <PlayIcon className="w-5 h-5" />
             </button>

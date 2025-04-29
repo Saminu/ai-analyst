@@ -1,5 +1,10 @@
 import "./globals.css";
 
+export const metadata = {
+  title: "DUT Labs - Data · Users · Tasks",
+  description: "Simple foundation · limitless potential",
+};
+
 export default function RootLayout({
   children,
 }: Readonly<{
